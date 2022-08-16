@@ -221,11 +221,26 @@ def train_fungi_network(nw_dir):
     print("Number of classes in data", n_classes)
     print("Number of samples with labels", df.shape[0])
 
+    train_df = pd.DataFrame(columns=df.columns)
+    valid_df = pd.DataFrame(columns=df.columns)
+
     pct_train = 0.8
-    train_df = df.sample(frac=pct_train)
-    valid_df = df.sample(frac=1-pct_train)
-    print("number of training samples", train_df.shape[0])
-    print("number of vlaid samples", valid_df.shape[0])
+    for class_i in range(n_classes):
+        tmp_df = df[df['class'] == class_i]
+        n_images = len(tmp_df)
+        if (n_images == 1): 
+            train_df = pd.concat([train_df, tmp_df])
+            valid_df = pd.concat([valid_df, tmp_df])
+        else:
+            train_df = pd.concat([train_df, tmp_df.sample(frac=pct_train)])
+
+            n_valid = int((1 - pct_train) * n_images)
+            if (n_valid == 0):
+                n_valid = 1
+            valid_df = pd.concat([valid_df, tmp_df.sample(n=n_valid)])
+
+    print("Number of training samples", train_df.shape[0])
+    print("Number of validation samples", valid_df.shape[0])
 
     # TODO mayble shuffle dataset
     train_dataset = NetworkFungiDataset(train_df, transform=get_transforms(data='train'))
@@ -234,7 +249,7 @@ def train_fungi_network(nw_dir):
     # batch_sz * accumulation_step = 64
     batch_sz = 32
     accumulation_steps = 2
-    n_epochs = 20
+    n_epochs = 30
     n_workers = 8
     train_loader = DataLoader(train_dataset, batch_size=batch_sz, shuffle=True, num_workers=n_workers)
     valid_loader = DataLoader(valid_dataset, batch_size=batch_sz, shuffle=False, num_workers=n_workers)
@@ -251,6 +266,7 @@ def train_fungi_network(nw_dir):
 
     lr = 0.01
     optimizer = SGD(model.parameters(), lr=lr, momentum=0.9)
+
     scheduler = ReduceLROnPlateau(optimizer, 'min', factor=0.9, patience=1, verbose=True, eps=1e-6)
 
     criterion = nn.CrossEntropyLoss()
@@ -280,6 +296,7 @@ def train_fungi_network(nw_dir):
                 optimizer.zero_grad()
                 avg_loss += loss.item() / len(train_loader)
 
+
         print("Doing validation")
         model.eval()
         avg_val_loss = 0.
@@ -302,14 +319,15 @@ def train_fungi_network(nw_dir):
         scheduler.step(avg_val_loss)
 
         # TODO: Divide data into training and validation
-        score = f1_score(valid_df['class'], preds, average='macro')
-        accuracy = accuracy_score(valid_df['class'], preds)
+        y_true = valid_df['class'].to_numpy().astype(int)
+        score = f1_score(y_true, preds, average='macro')
+        accuracy = accuracy_score(y_true, preds)
         # TODO FIX ME
-        # recall_3 = top_k_accuracy_score(valid_df['class'], preds_raw, k=3)
+        recall_3 = top_k_accuracy_score(y_true, preds_raw, k=3)
 
         elapsed = time.time() - start_time
         logger.debug(
-          f'  Epoch {epoch + 1} - avg_train_loss: {avg_loss:.4f}  avg_val_loss: {avg_val_loss:.4f} F1: {score:.6f}  Accuracy: {accuracy:.6f} Recall@3:  time: {elapsed:.0f}s')
+          f'  Epoch {epoch + 1} - avg_train_loss: {avg_loss:.4f}  avg_val_loss: {avg_val_loss:.4f} F1: {score:.6f}  Accuracy: {accuracy:.6f} Recall@3: {recall_3:.6f} time: {elapsed:.0f}s')
 
         if accuracy > best_score:
             best_score = accuracy
