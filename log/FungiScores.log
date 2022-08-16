@@ -1,3 +1,6 @@
 2022-08-16 14:38:16,058 INFO {'Accuracy': 0.40248860416410004, 'F1score': 0.37996740069555346, 'CohenKappa': 0.39491586042090243, 'LastSubmissionTime': datetime.datetime(2022, 8, 16, 14, 38, 11)}
 2022-08-16 15:15:30,262 INFO {'Accuracy': 0.07798447702353085, 'F1score': 0.029105785969682094, 'CohenKappa': 0.04904568908847762, 'LastSubmissionTime': datetime.datetime(2022, 8, 16, 15, 15, 26)}
 2022-08-16 15:21:08,431 INFO {'Accuracy': 0.36663792041394605, 'F1score': 0.3404909123772111, 'CohenKappa': 0.35840507326432025, 'LastSubmissionTime': datetime.datetime(2022, 8, 16, 15, 21, 3)}
+2022-08-16 15:43:14,842 INFO {'Accuracy': 0.37094985832204014, 'F1score': 0.3546621834273067, 'CohenKappa': 0.3630018265816537, 'LastSubmissionTime': datetime.datetime(2022, 8, 16, 15, 43, 10)}
+2022-08-16 16:33:35,980 INFO {'Accuracy': 0.36515954170259945, 'F1score': 0.34712938662846843, 'CohenKappa': 0.357143260042184, 'LastSubmissionTime': datetime.datetime(2022, 8, 16, 16, 33, 30)}
+2022-08-16 16:43:09,334 INFO {'Accuracy': 0.36959467783663913, 'F1score': 0.34676656023414765, 'CohenKappa': 0.3614538495635192, 'LastSubmissionTime': datetime.datetime(2022, 8, 16, 16, 43, 4)}
