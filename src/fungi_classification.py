@@ -1,6 +1,6 @@
 import os.path
 import sys
-import pandas as pd 
+import pandas as pd
 import fungichallenge.participant as fcp
 import random
 import torch
@@ -166,7 +166,7 @@ def get_transforms(data):
 
     if data == 'train':
         return Compose([
-            RandomResizedCrop(width, height, scale=(0.8, 1.0)),
+            RandomResizedCrop(width, height),
             HorizontalFlip(p=0.5),
             VerticalFlip(p=0.5),
             RandomBrightnessContrast(p=0.2),
@@ -221,14 +221,14 @@ def train_fungi_network(nw_dir, data_dir):
     n_classes = len(df['class'].unique())
     print("Number of classes in data", n_classes)
     print("Number of samples with labels", df.shape[0])
-    # Remove invalid A
-    with open('buf.txt') as f:
-      lines = f.readlines()
+    # Remove invalid images
+    with open('blacklist.txt') as f:
+      blacklist = f.read().splitlines() 
 
     print(len(df))
     for index, row in df.iterrows():
         img_name = os.path.basename(row['image'])
-        if (img_name + '\n' in lines):
+        if (img_name in blacklist):
             df = df.drop(index)
 
 
@@ -236,11 +236,11 @@ def train_fungi_network(nw_dir, data_dir):
     train_df = pd.DataFrame(columns=df.columns)
     valid_df = pd.DataFrame(columns=df.columns)
 
-    pct_train = 0.9
+    pct_train = 0.95
     for class_i in range(n_classes):
         tmp_df = df[df['class'] == class_i]
         n_images = len(tmp_df)
-        if (n_images == 1): 
+        if (n_images == 1):
             train_df = pd.concat([train_df, tmp_df])
             valid_df = pd.concat([valid_df, tmp_df])
         else:
