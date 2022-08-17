@@ -1,6 +1,6 @@
 import os.path
 import sys
-import pandas as pd
+import pandas as pd 
 import fungichallenge.participant as fcp
 import random
 import torch
@@ -211,20 +211,32 @@ def init_logger(log_file='train.log'):
     return logger
 
 
-def train_fungi_network(nw_dir):
+def train_fungi_network(nw_dir, data_dir):
     data_file = os.path.join(nw_dir, "data_with_labels.csv")
     log_file = os.path.join(nw_dir, "FungiEfficientNet-B0.log")
     logger = init_logger(log_file)
+    print(data_dir)
 
     df = pd.read_csv(data_file)
     n_classes = len(df['class'].unique())
     print("Number of classes in data", n_classes)
     print("Number of samples with labels", df.shape[0])
+    # Remove invalid A
+    with open('buf.txt') as f:
+      lines = f.readlines()
 
+    print(len(df))
+    for index, row in df.iterrows():
+        img_name = os.path.basename(row['image'])
+        if (img_name + '\n' in lines):
+            df = df.drop(index)
+
+
+    print(len(df))
     train_df = pd.DataFrame(columns=df.columns)
     valid_df = pd.DataFrame(columns=df.columns)
 
-    pct_train = 0.8
+    pct_train = 0.9
     for class_i in range(n_classes):
         tmp_df = df[df['class'] == class_i]
         n_images = len(tmp_df)
@@ -257,7 +269,7 @@ def train_fungi_network(nw_dir):
     seed_torch(777)
 
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-    print('Using  xx device:', device)
+    print('Using device:', device)
 
     model = EfficientNet.from_pretrained('efficientnet-b0')
     model._fc = nn.Linear(model._fc.in_features, n_classes)
@@ -318,11 +330,9 @@ def train_fungi_network(nw_dir):
 
         scheduler.step(avg_val_loss)
 
-        # TODO: Divide data into training and validation
         y_true = valid_df['class'].to_numpy().astype(int)
         score = f1_score(y_true, preds, average='macro')
         accuracy = accuracy_score(y_true, preds)
-        # TODO FIX ME
         recall_3 = top_k_accuracy_score(y_true, preds_raw, k=3)
 
         elapsed = time.time() - start_time
@@ -439,6 +449,6 @@ if __name__ == '__main__':
     print_data_set_numbers(team, team_pw)
     # request_random_labels(team, team_pw)
     get_all_data_with_labels(team, team_pw, image_dir, network_dir)
-    train_fungi_network(network_dir)
+    train_fungi_network(network_dir, image_dir)
     evaluate_network_on_test_set(team, team_pw, image_dir, network_dir)
     compute_challenge_score(team, team_pw, network_dir)
