@@ -279,8 +279,13 @@ def train_fungi_network(nw_dir, data_dir):
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     print('Using device:', device)
 
-    model = EfficientNet.from_pretrained('efficientnet-b0')
-    model._fc = nn.Linear(model._fc.in_features, n_classes)
+    best_trained_model = os.path.join(nw_dir, "DF20M-EfficientNet-B0_best_accuracy.pth")
+    checkpoint = torch.load(best_trained_model)
+
+
+    model = EfficientNet.from_pretrained('efficientnet-b0', num_classes=183)
+    # model._fc = nn.Linear(model._fc.in_features, n_classes)
+    model.load_state_dict(checkpoint)
 
     model.to(device)
 
@@ -450,12 +455,13 @@ if __name__ == '__main__':
     # where should log files, temporary files and trained models be placed
     network_dir = "/home/dmitr/dev/fungi/log"
 
-    # imgs_and_data = fcp.get_data_set(team, team_pw, "train_set")
-    # imgs = [x for (x, y) in imgs_and_data]
-    # with open('first_request.txt') as f:
-    #   req_images = f.read().splitlines()
-    #   req_images = intersection(req_images, imgs)
-    #   labels = request_labels(team, team_pw, req_images)
+    #imgs_and_data = fcp.get_data_set(team, team_pw, "train_set")
+    #imgs = [x for (x, y) in imgs_and_data]
+    #with open('second_request.txt') as f:
+    #    req_images = f.read().splitlines()
+    #    req_images = intersection(req_images, imgs)
+    #    labels = request_labels(team, team_pw, req_images)
+    #    print(len(labels))
 
     get_participant_credits(team, team_pw)
     #request_random_labels(team, team_pw)
