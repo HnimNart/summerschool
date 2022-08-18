@@ -30,7 +30,7 @@ def get_participant_credits(tm, tm_pw):
         Print available credits for the team
     """
     current_credits = fcp.get_current_credits(tm, tm_pw)
-    print('Team', team, 'credits:', current_credits)
+    print('Team', tm, 'credits:', current_credits)
 
 
 def print_data_set_numbers(tm, tm_pw):
@@ -269,7 +269,7 @@ def train_fungi_network(nw_dir, data_dir):
     # batch_sz * accumulation_step = 64
     batch_sz = 32
     accumulation_steps = 2
-    n_epochs = 500
+    n_epochs = 50
     n_workers = 8
     train_loader = DataLoader(train_dataset, batch_size=batch_sz, shuffle=True, num_workers=n_workers)
     valid_loader = DataLoader(valid_dataset, batch_size=batch_sz, shuffle=False, num_workers=n_workers)
