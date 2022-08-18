@@ -1,4 +1,4 @@
-import os.path
+import os.path 
 import sys
 import pandas as pd
 import fungichallenge.participant as fcp
@@ -20,6 +20,10 @@ import tqdm
 from logging import getLogger, DEBUG, FileHandler, Formatter, StreamHandler
 import time
 
+
+def intersection(lst1, lst2):
+    lst3 = [value for value in lst1 if value in lst2]
+    return lst3
 
 def get_participant_credits(tm, tm_pw):
     """
@@ -50,7 +54,7 @@ def request_random_labels(tm, tm_pw):
     An example on how to request labels from the available pool of images.
     Here it is just a random subset being requested
     """
-    n_request = 500
+    n_request = 1
 
     # First get the image ids from the pool
     imgs_and_data = fcp.get_data_set(tm, tm_pw, 'train_set')
@@ -61,9 +65,14 @@ def request_random_labels(tm, tm_pw):
     for i in range(n_request):
         idx = random.randint(0, n_img - 1)
         im_id = imgs_and_data[idx][0]
+        print(im_id)
         req_imgs.append(im_id)
+    exit()
 
     labels = fcp.request_labels(tm, tm_pw, req_imgs)
+
+def request_labels(tm, tm_pw, images):
+    return fcp.request_labels(tm, tm_pw, images)
 
 
 def test_submit_labels(tm, tm_pw):
@@ -223,12 +232,12 @@ def train_fungi_network(nw_dir, data_dir):
     print("Number of samples with labels", df.shape[0])
     # Remove invalid images
     with open('blacklist.txt') as f:
-      blacklist = f.read().splitlines() 
+      lines = f.read().splitlines() 
 
     print(len(df))
     for index, row in df.iterrows():
         img_name = os.path.basename(row['image'])
-        if (img_name in blacklist):
+        if (img_name + '\n' in lines):
             df = df.drop(index)
 
 
@@ -254,14 +263,13 @@ def train_fungi_network(nw_dir, data_dir):
     print("Number of training samples", train_df.shape[0])
     print("Number of validation samples", valid_df.shape[0])
 
-    # TODO mayble shuffle dataset
     train_dataset = NetworkFungiDataset(train_df, transform=get_transforms(data='train'))
     valid_dataset = NetworkFungiDataset(valid_df, transform=get_transforms(data='valid'))
 
     # batch_sz * accumulation_step = 64
     batch_sz = 32
     accumulation_steps = 2
-    n_epochs = 30
+    n_epochs = 500
     n_workers = 8
     train_loader = DataLoader(train_dataset, batch_size=batch_sz, shuffle=True, num_workers=n_workers)
     valid_loader = DataLoader(valid_dataset, batch_size=batch_sz, shuffle=False, num_workers=n_workers)
@@ -276,8 +284,8 @@ def train_fungi_network(nw_dir, data_dir):
 
     model.to(device)
 
-    lr = 0.01
-    optimizer = SGD(model.parameters(), lr=lr, momentum=0.9)
+    lr = 1e-4
+    optimizer = AdamW(model.parameters(), lr=lr)
 
     scheduler = ReduceLROnPlateau(optimizer, 'min', factor=0.9, patience=1, verbose=True, eps=1e-6)
 
@@ -433,8 +441,6 @@ def compute_challenge_score(tm, tm_pw, nw_dir):
 
 if __name__ == '__main__':
     # Your team and team password
-    # team = "DancingDeer"
-    # team_pw = "fungi44"
     team = "CuriousTermite"
     team_pw = "fungi87"
 
@@ -444,10 +450,16 @@ if __name__ == '__main__':
     # where should log files, temporary files and trained models be placed
     network_dir = "/home/dmitr/dev/fungi/log"
 
+    # imgs_and_data = fcp.get_data_set(team, team_pw, "train_set")
+    # imgs = [x for (x, y) in imgs_and_data]
+    # with open('first_request.txt') as f:
+    #   req_images = f.read().splitlines()
+    #   req_images = intersection(req_images, imgs)
+    #   labels = request_labels(team, team_pw, req_images)
 
     get_participant_credits(team, team_pw)
+    #request_random_labels(team, team_pw)
     print_data_set_numbers(team, team_pw)
-    # request_random_labels(team, team_pw)
     get_all_data_with_labels(team, team_pw, image_dir, network_dir)
     train_fungi_network(network_dir, image_dir)
     evaluate_network_on_test_set(team, team_pw, image_dir, network_dir)
