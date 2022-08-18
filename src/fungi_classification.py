@@ -31,6 +31,7 @@ def get_participant_credits(tm, tm_pw):
     """
     current_credits = fcp.get_current_credits(tm, tm_pw)
     print('Team', tm, 'credits:', current_credits)
+    return current_credits
 
 
 def print_data_set_numbers(tm, tm_pw):
@@ -269,7 +270,7 @@ def train_fungi_network(nw_dir, data_dir):
     # batch_sz * accumulation_step = 64
     batch_sz = 32
     accumulation_steps = 2
-    n_epochs = 50
+    n_epochs = 20
     n_workers = 8
     train_loader = DataLoader(train_dataset, batch_size=batch_sz, shuffle=True, num_workers=n_workers)
     valid_loader = DataLoader(valid_dataset, batch_size=batch_sz, shuffle=False, num_workers=n_workers)
@@ -289,7 +290,7 @@ def train_fungi_network(nw_dir, data_dir):
 
     model.to(device)
 
-    lr = 1e-4
+    lr = 1e-5
     optimizer = AdamW(model.parameters(), lr=lr)
 
     scheduler = ReduceLROnPlateau(optimizer, 'min', factor=0.9, patience=1, verbose=True, eps=1e-6)
@@ -456,15 +457,6 @@ if __name__ == '__main__':
 
     # where should log files, temporary files and trained models be placed
     network_dir = "/home/dmitr/dev/fungi/log"
-
-    imgs_and_data = fcp.get_data_set(team, team_pw, "train_set")
-    imgs = [x for (x, y) in imgs_and_data]
-    with open('third_request.txt') as f:
-        req_images = f.read().splitlines()
-        req_images = intersection(req_images, imgs)
-        print(len(req_images))
-        labels = request_labels(team, team_pw, req_images)
-        # print(len(labels))
 
     get_participant_credits(team, team_pw)
     #request_random_labels(team, team_pw)
