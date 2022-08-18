@@ -269,7 +269,7 @@ def train_fungi_network(nw_dir, data_dir):
     # batch_sz * accumulation_step = 64
     batch_sz = 32
     accumulation_steps = 2
-    n_epochs = 50
+    n_epochs = 1
     n_workers = 8
     train_loader = DataLoader(train_dataset, batch_size=batch_sz, shuffle=True, num_workers=n_workers)
     valid_loader = DataLoader(valid_dataset, batch_size=batch_sz, shuffle=False, num_workers=n_workers)
@@ -365,7 +365,7 @@ def train_fungi_network(nw_dir, data_dir):
             torch.save(model.state_dict(), best_model_name)
 
 
-def evaluate_network_on_test_set(tm, tm_pw, im_dir, nw_dir):
+def evaluate_network_on_test_set(tm, tm_pw, im_dir, nw_dir, use_final_set=False):
     """
         Evaluate trained network on the test set and submit the results to the challenge database.
         The scores can be extracted using compute_challenge_score.
@@ -373,8 +373,10 @@ def evaluate_network_on_test_set(tm, tm_pw, im_dir, nw_dir):
     """
     # Use 'test-set' for the set of data that can evaluated several times
     # Use 'final-set' for the final set that will be used in the final score of the challenge
-    use_set = 'test_set'
-    # use_set = 'final_set'
+    if use_final_set:
+        use_set = 'final_set'
+    else:
+        use_set = 'test_set'
     print(f"Evaluating on {use_set}")
 
     best_trained_model = os.path.join(nw_dir, "DF20M-EfficientNet-B0_best_accuracy.pth")
@@ -469,4 +471,5 @@ if __name__ == '__main__':
     get_all_data_with_labels(team, team_pw, image_dir, network_dir)
     train_fungi_network(network_dir, image_dir)
     evaluate_network_on_test_set(team, team_pw, image_dir, network_dir)
+    evaluate_network_on_test_set(team, team_pw, image_dir, network_dir, True)
     compute_challenge_score(team, team_pw, network_dir)
