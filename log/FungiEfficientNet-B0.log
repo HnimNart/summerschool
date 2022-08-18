@@ -4239,3 +4239,107 @@
 2022-08-18 14:03:25,478 DEBUG   Epoch 1 - Save Best Accuracy: 1.000000 Model
 2022-08-18 14:03:25,530 DEBUG   Epoch 1 - Save Best Loss: 0.0273 Model
 2022-08-18 14:04:35,180 INFO {'Accuracy': 0.48564740667734385, 'F1score': 0.472981769744085, 'CohenKappa': 0.47929501454398005, 'LastSubmissionTime': datetime.datetime(2022, 8, 18, 14, 4, 27)}
+2022-08-18 14:35:07,367 DEBUG   Epoch 1 - avg_train_loss: 0.2968  avg_val_loss: 0.8346 F1: 0.748109  Accuracy: 0.787634 Recall@3: 0.889785 time: 34s
+2022-08-18 14:35:07,367 DEBUG   Epoch 1 - Save Best Accuracy: 0.787634 Model
+2022-08-18 14:35:07,432 DEBUG   Epoch 1 - Save Best Loss: 0.8346 Model
+2022-08-18 14:35:39,554 DEBUG   Epoch 2 - avg_train_loss: 0.2484  avg_val_loss: 0.6677 F1: 0.775330  Accuracy: 0.825269 Recall@3: 0.924731 time: 32s
+2022-08-18 14:35:39,554 DEBUG   Epoch 2 - Save Best Accuracy: 0.825269 Model
+2022-08-18 14:35:39,604 DEBUG   Epoch 2 - Save Best Loss: 0.6677 Model
+2022-08-18 14:36:11,904 DEBUG   Epoch 3 - avg_train_loss: 0.2295  avg_val_loss: 0.5714 F1: 0.790366  Accuracy: 0.844086 Recall@3: 0.938172 time: 32s
+2022-08-18 14:36:11,904 DEBUG   Epoch 3 - Save Best Accuracy: 0.844086 Model
+2022-08-18 14:36:11,955 DEBUG   Epoch 3 - Save Best Loss: 0.5714 Model
+2022-08-18 14:36:43,962 DEBUG   Epoch 4 - avg_train_loss: 0.2228  avg_val_loss: 0.4991 F1: 0.813585  Accuracy: 0.860215 Recall@3: 0.940860 time: 32s
+2022-08-18 14:36:43,963 DEBUG   Epoch 4 - Save Best Accuracy: 0.860215 Model
+2022-08-18 14:36:44,013 DEBUG   Epoch 4 - Save Best Loss: 0.4991 Model
+2022-08-18 14:37:16,267 DEBUG   Epoch 5 - avg_train_loss: 0.2129  avg_val_loss: 0.4255 F1: 0.832337  Accuracy: 0.881720 Recall@3: 0.959677 time: 32s
+2022-08-18 14:37:16,267 DEBUG   Epoch 5 - Save Best Accuracy: 0.881720 Model
+2022-08-18 14:37:16,317 DEBUG   Epoch 5 - Save Best Loss: 0.4255 Model
+2022-08-18 14:37:48,226 DEBUG   Epoch 6 - avg_train_loss: 0.2064  avg_val_loss: 0.4179 F1: 0.853360  Accuracy: 0.889785 Recall@3: 0.954301 time: 32s
+2022-08-18 14:37:48,226 DEBUG   Epoch 6 - Save Best Accuracy: 0.889785 Model
+2022-08-18 14:37:48,273 DEBUG   Epoch 6 - Save Best Loss: 0.4179 Model
+2022-08-18 14:38:20,243 DEBUG   Epoch 7 - avg_train_loss: 0.1861  avg_val_loss: 0.3558 F1: 0.863036  Accuracy: 0.897849 Recall@3: 0.967742 time: 32s
+2022-08-18 14:38:20,243 DEBUG   Epoch 7 - Save Best Accuracy: 0.897849 Model
+2022-08-18 14:38:20,293 DEBUG   Epoch 7 - Save Best Loss: 0.3558 Model
+2022-08-18 14:38:52,432 DEBUG   Epoch 8 - avg_train_loss: 0.1788  avg_val_loss: 0.3139 F1: 0.858233  Accuracy: 0.900538 Recall@3: 0.970430 time: 32s
+2022-08-18 14:38:52,432 DEBUG   Epoch 8 - Save Best Accuracy: 0.900538 Model
+2022-08-18 14:38:52,490 DEBUG   Epoch 8 - Save Best Loss: 0.3139 Model
+2022-08-18 14:39:24,533 DEBUG   Epoch 9 - avg_train_loss: 0.1771  avg_val_loss: 0.2916 F1: 0.865190  Accuracy: 0.903226 Recall@3: 0.973118 time: 32s
+2022-08-18 14:39:24,533 DEBUG   Epoch 9 - Save Best Accuracy: 0.903226 Model
+2022-08-18 14:39:24,583 DEBUG   Epoch 9 - Save Best Loss: 0.2916 Model
+2022-08-18 14:39:57,070 DEBUG   Epoch 10 - avg_train_loss: 0.1687  avg_val_loss: 0.2508 F1: 0.898702  Accuracy: 0.932796 Recall@3: 0.983871 time: 32s
+2022-08-18 14:39:57,070 DEBUG   Epoch 10 - Save Best Accuracy: 0.932796 Model
+2022-08-18 14:39:57,121 DEBUG   Epoch 10 - Save Best Loss: 0.2508 Model
+2022-08-18 14:40:29,294 DEBUG   Epoch 11 - avg_train_loss: 0.1671  avg_val_loss: 0.2359 F1: 0.900076  Accuracy: 0.927419 Recall@3: 0.983871 time: 32s
+2022-08-18 14:40:29,294 DEBUG   Epoch 11 - Save Best Loss: 0.2359 Model
+2022-08-18 14:41:01,319 DEBUG   Epoch 12 - avg_train_loss: 0.1595  avg_val_loss: 0.2343 F1: 0.888911  Accuracy: 0.916667 Recall@3: 0.986559 time: 32s
+2022-08-18 14:41:01,320 DEBUG   Epoch 12 - Save Best Loss: 0.2343 Model
+2022-08-18 14:41:33,503 DEBUG   Epoch 13 - avg_train_loss: 0.1562  avg_val_loss: 0.2039 F1: 0.918926  Accuracy: 0.943548 Recall@3: 0.989247 time: 32s
+2022-08-18 14:41:33,503 DEBUG   Epoch 13 - Save Best Accuracy: 0.943548 Model
+2022-08-18 14:41:33,554 DEBUG   Epoch 13 - Save Best Loss: 0.2039 Model
+2022-08-18 14:42:05,715 DEBUG   Epoch 14 - avg_train_loss: 0.1626  avg_val_loss: 0.1700 F1: 0.928880  Accuracy: 0.954301 Recall@3: 0.994624 time: 32s
+2022-08-18 14:42:05,715 DEBUG   Epoch 14 - Save Best Accuracy: 0.954301 Model
+2022-08-18 14:42:05,783 DEBUG   Epoch 14 - Save Best Loss: 0.1700 Model
+2022-08-18 14:42:38,115 DEBUG   Epoch 15 - avg_train_loss: 0.1507  avg_val_loss: 0.1742 F1: 0.941518  Accuracy: 0.951613 Recall@3: 0.997312 time: 32s
+2022-08-18 14:43:10,099 DEBUG   Epoch 16 - avg_train_loss: 0.1408  avg_val_loss: 0.1586 F1: 0.946414  Accuracy: 0.956989 Recall@3: 1.000000 time: 32s
+2022-08-18 14:43:10,099 DEBUG   Epoch 16 - Save Best Accuracy: 0.956989 Model
+2022-08-18 14:43:10,149 DEBUG   Epoch 16 - Save Best Loss: 0.1586 Model
+2022-08-18 14:43:42,498 DEBUG   Epoch 17 - avg_train_loss: 0.1394  avg_val_loss: 0.1366 F1: 0.964590  Accuracy: 0.975806 Recall@3: 0.994624 time: 32s
+2022-08-18 14:43:42,498 DEBUG   Epoch 17 - Save Best Accuracy: 0.975806 Model
+2022-08-18 14:43:42,548 DEBUG   Epoch 17 - Save Best Loss: 0.1366 Model
+2022-08-18 14:44:14,721 DEBUG   Epoch 18 - avg_train_loss: 0.1401  avg_val_loss: 0.1325 F1: 0.947339  Accuracy: 0.965054 Recall@3: 0.997312 time: 32s
+2022-08-18 14:44:14,722 DEBUG   Epoch 18 - Save Best Loss: 0.1325 Model
+2022-08-18 14:44:46,889 DEBUG   Epoch 19 - avg_train_loss: 0.1414  avg_val_loss: 0.1240 F1: 0.960500  Accuracy: 0.973118 Recall@3: 1.000000 time: 32s
+2022-08-18 14:44:46,890 DEBUG   Epoch 19 - Save Best Loss: 0.1240 Model
+2022-08-18 14:45:19,039 DEBUG   Epoch 20 - avg_train_loss: 0.1253  avg_val_loss: 0.1099 F1: 0.964591  Accuracy: 0.973118 Recall@3: 1.000000 time: 32s
+2022-08-18 14:45:19,040 DEBUG   Epoch 20 - Save Best Loss: 0.1099 Model
+2022-08-18 14:45:51,214 DEBUG   Epoch 21 - avg_train_loss: 0.1280  avg_val_loss: 0.1075 F1: 0.959699  Accuracy: 0.970430 Recall@3: 1.000000 time: 32s
+2022-08-18 14:45:51,214 DEBUG   Epoch 21 - Save Best Loss: 0.1075 Model
+2022-08-18 14:46:23,456 DEBUG   Epoch 22 - avg_train_loss: 0.1285  avg_val_loss: 0.1074 F1: 0.987134  Accuracy: 0.986559 Recall@3: 0.997312 time: 32s
+2022-08-18 14:46:23,457 DEBUG   Epoch 22 - Save Best Accuracy: 0.986559 Model
+2022-08-18 14:46:23,528 DEBUG   Epoch 22 - Save Best Loss: 0.1074 Model
+2022-08-18 14:46:55,884 DEBUG   Epoch 23 - avg_train_loss: 0.1195  avg_val_loss: 0.0996 F1: 0.972946  Accuracy: 0.975806 Recall@3: 0.997312 time: 32s
+2022-08-18 14:46:55,884 DEBUG   Epoch 23 - Save Best Loss: 0.0996 Model
+2022-08-18 14:47:28,288 DEBUG   Epoch 24 - avg_train_loss: 0.1208  avg_val_loss: 0.0956 F1: 0.970216  Accuracy: 0.975806 Recall@3: 0.997312 time: 32s
+2022-08-18 14:47:28,288 DEBUG   Epoch 24 - Save Best Loss: 0.0956 Model
+2022-08-18 14:48:00,806 DEBUG   Epoch 25 - avg_train_loss: 0.1186  avg_val_loss: 0.0925 F1: 0.969940  Accuracy: 0.975806 Recall@3: 1.000000 time: 32s
+2022-08-18 14:48:00,806 DEBUG   Epoch 25 - Save Best Loss: 0.0925 Model
+2022-08-18 14:48:33,231 DEBUG   Epoch 26 - avg_train_loss: 0.1144  avg_val_loss: 0.0849 F1: 0.981932  Accuracy: 0.981183 Recall@3: 0.997312 time: 32s
+2022-08-18 14:48:33,231 DEBUG   Epoch 26 - Save Best Loss: 0.0849 Model
+2022-08-18 14:49:05,291 DEBUG   Epoch 27 - avg_train_loss: 0.1180  avg_val_loss: 0.0856 F1: 0.986961  Accuracy: 0.983871 Recall@3: 0.997312 time: 32s
+2022-08-18 14:49:37,636 DEBUG   Epoch 28 - avg_train_loss: 0.1186  avg_val_loss: 0.0841 F1: 0.982572  Accuracy: 0.983871 Recall@3: 0.997312 time: 32s
+2022-08-18 14:49:37,637 DEBUG   Epoch 28 - Save Best Loss: 0.0841 Model
+2022-08-18 14:50:10,044 DEBUG   Epoch 29 - avg_train_loss: 0.1126  avg_val_loss: 0.0746 F1: 0.984515  Accuracy: 0.983871 Recall@3: 0.997312 time: 32s
+2022-08-18 14:50:10,045 DEBUG   Epoch 29 - Save Best Loss: 0.0746 Model
+2022-08-18 14:50:42,224 DEBUG   Epoch 30 - avg_train_loss: 0.1100  avg_val_loss: 0.0787 F1: 0.985989  Accuracy: 0.986559 Recall@3: 0.997312 time: 32s
+2022-08-18 14:51:14,746 DEBUG   Epoch 31 - avg_train_loss: 0.1085  avg_val_loss: 0.0754 F1: 0.987143  Accuracy: 0.983871 Recall@3: 0.997312 time: 33s
+2022-08-18 14:51:46,854 DEBUG   Epoch 32 - avg_train_loss: 0.1103  avg_val_loss: 0.0708 F1: 0.990303  Accuracy: 0.986559 Recall@3: 0.997312 time: 32s
+2022-08-18 14:51:46,854 DEBUG   Epoch 32 - Save Best Loss: 0.0708 Model
+2022-08-18 14:52:19,118 DEBUG   Epoch 33 - avg_train_loss: 0.1011  avg_val_loss: 0.0665 F1: 0.991044  Accuracy: 0.986559 Recall@3: 0.997312 time: 32s
+2022-08-18 14:52:19,118 DEBUG   Epoch 33 - Save Best Loss: 0.0665 Model
+2022-08-18 14:52:51,493 DEBUG   Epoch 34 - avg_train_loss: 0.1004  avg_val_loss: 0.0698 F1: 0.984131  Accuracy: 0.983871 Recall@3: 0.997312 time: 32s
+2022-08-18 14:53:23,691 DEBUG   Epoch 35 - avg_train_loss: 0.1054  avg_val_loss: 0.0693 F1: 0.980718  Accuracy: 0.978495 Recall@3: 0.997312 time: 32s
+2022-08-18 14:53:56,015 DEBUG   Epoch 36 - avg_train_loss: 0.0965  avg_val_loss: 0.0718 F1: 0.987328  Accuracy: 0.983871 Recall@3: 0.997312 time: 32s
+2022-08-18 14:54:28,022 DEBUG   Epoch 37 - avg_train_loss: 0.0957  avg_val_loss: 0.0708 F1: 0.968323  Accuracy: 0.978495 Recall@3: 0.997312 time: 32s
+2022-08-18 14:55:00,071 DEBUG   Epoch 38 - avg_train_loss: 0.0947  avg_val_loss: 0.0608 F1: 0.981132  Accuracy: 0.981183 Recall@3: 0.997312 time: 32s
+2022-08-18 14:55:00,071 DEBUG   Epoch 38 - Save Best Loss: 0.0608 Model
+2022-08-18 14:55:32,511 DEBUG   Epoch 39 - avg_train_loss: 0.0992  avg_val_loss: 0.0595 F1: 0.980911  Accuracy: 0.981183 Recall@3: 0.997312 time: 32s
+2022-08-18 14:55:32,512 DEBUG   Epoch 39 - Save Best Loss: 0.0595 Model
+2022-08-18 14:56:04,742 DEBUG   Epoch 40 - avg_train_loss: 0.0996  avg_val_loss: 0.0645 F1: 0.986094  Accuracy: 0.986559 Recall@3: 0.997312 time: 32s
+2022-08-18 14:56:36,935 DEBUG   Epoch 41 - avg_train_loss: 0.0963  avg_val_loss: 0.0649 F1: 0.968989  Accuracy: 0.978495 Recall@3: 0.997312 time: 32s
+2022-08-18 14:57:09,050 DEBUG   Epoch 42 - avg_train_loss: 0.0914  avg_val_loss: 0.0508 F1: 0.978877  Accuracy: 0.983871 Recall@3: 0.997312 time: 32s
+2022-08-18 14:57:09,050 DEBUG   Epoch 42 - Save Best Loss: 0.0508 Model
+2022-08-18 14:57:41,338 DEBUG   Epoch 43 - avg_train_loss: 0.0949  avg_val_loss: 0.0525 F1: 0.978877  Accuracy: 0.983871 Recall@3: 0.997312 time: 32s
+2022-08-18 14:58:13,845 DEBUG   Epoch 44 - avg_train_loss: 0.0869  avg_val_loss: 0.0600 F1: 0.983387  Accuracy: 0.983871 Recall@3: 0.997312 time: 33s
+2022-08-18 14:58:46,109 DEBUG   Epoch 45 - avg_train_loss: 0.0914  avg_val_loss: 0.0535 F1: 0.977003  Accuracy: 0.981183 Recall@3: 0.997312 time: 32s
+2022-08-18 14:59:18,588 DEBUG   Epoch 46 - avg_train_loss: 0.0914  avg_val_loss: 0.0481 F1: 0.986944  Accuracy: 0.986559 Recall@3: 0.997312 time: 32s
+2022-08-18 14:59:18,588 DEBUG   Epoch 46 - Save Best Loss: 0.0481 Model
+2022-08-18 14:59:50,857 DEBUG   Epoch 47 - avg_train_loss: 0.0853  avg_val_loss: 0.0446 F1: 0.991396  Accuracy: 0.989247 Recall@3: 0.997312 time: 32s
+2022-08-18 14:59:50,857 DEBUG   Epoch 47 - Save Best Accuracy: 0.989247 Model
+2022-08-18 14:59:50,910 DEBUG   Epoch 47 - Save Best Loss: 0.0446 Model
+2022-08-18 15:00:23,161 DEBUG   Epoch 48 - avg_train_loss: 0.0849  avg_val_loss: 0.0430 F1: 0.993824  Accuracy: 0.991935 Recall@3: 0.997312 time: 32s
+2022-08-18 15:00:23,161 DEBUG   Epoch 48 - Save Best Accuracy: 0.991935 Model
+2022-08-18 15:00:23,214 DEBUG   Epoch 48 - Save Best Loss: 0.0430 Model
+2022-08-18 15:00:55,570 DEBUG   Epoch 49 - avg_train_loss: 0.0862  avg_val_loss: 0.0509 F1: 0.985434  Accuracy: 0.986559 Recall@3: 0.997312 time: 32s
+2022-08-18 15:01:27,918 DEBUG   Epoch 50 - avg_train_loss: 0.0788  avg_val_loss: 0.0427 F1: 0.992124  Accuracy: 0.989247 Recall@3: 1.000000 time: 32s
+2022-08-18 15:01:27,919 DEBUG   Epoch 50 - Save Best Loss: 0.0427 Model
+2022-08-18 15:02:46,988 INFO {'Accuracy': 0.5349266970555624, 'F1score': 0.5255186987062183, 'CohenKappa': 0.5294167053435606, 'LastSubmissionTime': datetime.datetime(2022, 8, 18, 15, 1, 56)}

@@ -269,7 +269,7 @@ def train_fungi_network(nw_dir, data_dir):
     # batch_sz * accumulation_step = 64
     batch_sz = 32
     accumulation_steps = 2
-    n_epochs = 1
+    n_epochs = 50
     n_workers = 8
     train_loader = DataLoader(train_dataset, batch_size=batch_sz, shuffle=True, num_workers=n_workers)
     valid_loader = DataLoader(valid_dataset, batch_size=batch_sz, shuffle=False, num_workers=n_workers)
@@ -457,13 +457,14 @@ if __name__ == '__main__':
     # where should log files, temporary files and trained models be placed
     network_dir = "/home/dmitr/dev/fungi/log"
 
-    #imgs_and_data = fcp.get_data_set(team, team_pw, "train_set")
-    #imgs = [x for (x, y) in imgs_and_data]
-    #with open('second_request.txt') as f:
-    #    req_images = f.read().splitlines()
-    #    req_images = intersection(req_images, imgs)
-    #    labels = request_labels(team, team_pw, req_images)
-    #    print(len(labels))
+    imgs_and_data = fcp.get_data_set(team, team_pw, "train_set")
+    imgs = [x for (x, y) in imgs_and_data]
+    with open('third_request.txt') as f:
+        req_images = f.read().splitlines()
+        req_images = intersection(req_images, imgs)
+        print(len(req_images))
+        labels = request_labels(team, team_pw, req_images)
+        # print(len(labels))
 
     get_participant_credits(team, team_pw)
     #request_random_labels(team, team_pw)
